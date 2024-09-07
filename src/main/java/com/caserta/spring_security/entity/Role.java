@@ -21,7 +21,7 @@ public class Role {
 
     private String name;
 
-    @Getter
+
     public enum Values {
         ADMIN(1L),
 
@@ -33,5 +33,8 @@ public class Role {
             this.roleId = roleId;
         }
 
+        public void setRoleId(long roleId) {
+            this.roleId = roleId;
+        }
     }
 }
