@@ -1,5 +1,7 @@
 package com.caserta.spring_security.entity;
 
+
+import com.caserta.spring_security.enums.RoleType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,22 +21,5 @@ public class Role {
     @Column(name = "role_id")
     private Long id;
 
-    private String name;
-
-
-    public enum Values {
-        ADMIN(1L),
-
-        BASIC(2L);
-
-        long roleId;
-
-        Values(long roleId) {
-            this.roleId = roleId;
-        }
-
-        public void setRoleId(long roleId) {
-            this.roleId = roleId;
-        }
-    }
+    private String roleType;
 }

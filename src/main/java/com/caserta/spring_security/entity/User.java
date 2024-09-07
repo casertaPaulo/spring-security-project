@@ -1,10 +1,12 @@
 package com.caserta.spring_security.entity;
 
+import com.caserta.spring_security.controller.dto.LoginRequest;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Set;
 import java.util.UUID;
@@ -35,5 +37,9 @@ public class User {
 
     )
     private Set<Role> roles;
+
+    public boolean isLoginValid(LoginRequest loginRequest, PasswordEncoder passwordEncoder){
+        return passwordEncoder.matches(loginRequest.password(), this.password);
+    }
 
 }
